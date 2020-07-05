@@ -1,6 +1,7 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
 import {Model} from "react-vr";
+import {PlanetaryScale} from "./GlobalVarsAndFunctions";
 
 class Planet extends React.Component
 {
@@ -15,7 +16,7 @@ class Planet extends React.Component
     this.style = {
       transform: [
         { translate: props.translate },
-        { scale: props.diameter/2548400 },
+        { scale: props.diameter/PlanetaryScale },
         { rotateX: props.rotateX },
         { rotateY: props.rotateY },
         { rotateZ: props.rotateZ }

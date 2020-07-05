@@ -114,9 +114,9 @@ class SolarSystem extends React.Component
             name={planet.name}
             lit={planet.lit}
             source={planet.source}
-            rotateX={0}
-            rotateY={0}
-            rotateZ={0}
+            rotateX={planet.rotateX}
+            rotateY={planet.rotateY}
+            rotateZ={planet.rotateZ}
             translate={planet.translate}
             diameter={planet.diameter}
           />

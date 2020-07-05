@@ -1,0 +1,14 @@
+ASSUMING THAT:
+Sun sits at 0, 0, 0;
+From a top-down perspective, Earth orbits CCW;
+And that the vernal equinox occurs at -X, 0, 0 (Mar 21)
+
+THEN:
+6 hours/90% RA is -Z, (Forward)
+12 hours/180% RA is -X, (Left)
+18 hours/270% RA is +Z, (Back)
+and 0/24 hours 0/360% RA is +X (Right)
+90 Degrees Polar Angle is +Y
+-90 degrees polar angle is -Y
++90 degrees declination is +Y
+-90 degrees declination is -Y

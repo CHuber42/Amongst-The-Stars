@@ -1,0 +1,11 @@
+Ephemirades to place a celestial body/orbit line
+API calls
+Collapse children into parents (planets into star, moons into planets)
+Context menu with links
+Movement Controls
+Star Sphere w/constellation links
+Raycaster
+
+Easter Eggs:
+Space Oddysey Monolith @ Jupiter
+Event Horizon @ Neptune

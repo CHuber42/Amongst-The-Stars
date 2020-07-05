@@ -149,7 +149,7 @@ export default class Capstone extends React.Component {
         <Model // SUN
           style={{
             transform : [
-              {translate: [35, -10, this.state.zoom - 30]},
+              {translate: [80, 0, -100]},
               {scale: .025}
             ]
           }}

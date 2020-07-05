@@ -5,29 +5,92 @@ import { Model, asset, AmbientLight, View } from "react-vr";
 let SolarPlanets = 
 [
   {
+    name: "Mercury",
+    source: { obj: asset("mercury/earth.obj") },
+    lit: true,
+    diameter: 4878,
+    translate: [60, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 59x
+  },
+  {
+    name: "Venus",
+    source: { obj: asset("venus/earth.obj") },
+    lit: true,
+    diameter: 12104,
+    translate: [55, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 243x
+  },
+  {
     name: "Earth",
     source: { obj: asset("earth/earth.obj"), mtl: asset("earth/earth.mtl") },
     lit: true,
-    style: {transform: [
-      { translate: [0, 0, -30] },
-      { scale: 0.005 },
-      { rotateY: 130 / 5 },
-      { rotateX: 20 },
-      { rotateZ: -10 }
-    ]},
+    diameter: 12742,
+    rotateX: 20,
+    rotateY: 180,
+    rotateZ: -10,
+    translate: [48, 0, -100]
+    //days: 23:56hrs
+  },
+  {
+    name: "Mars",
+    source: { obj: asset("mars/earth.obj") },
+    lit: true,
+    diameter: 6794,
+    translate: [42, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 24:37hrs
   },
   {
     name: "Jupiter",
-    source: { obj: asset("earth/earth.obj"), mtl: asset("earth/earth.mtl") },
+    source: { obj: asset("jupiter/earth.obj") },
     lit: true,
-    style: {
-      transform: [
-      { translate: [-67, -10, -50] },
-      { scale: 0.05 },
-      { rotateY: 130 / 5 },
-      { rotateX: 20 },
-      { rotateZ: -10 }
-    ]},
+    diameter: 142984,
+    translate: [15, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 9:55hrs
+  },
+  {
+    name: "Saturn",
+    source: { obj: asset("saturn/earth.obj") },
+    lit: true,
+    diameter: 120536,
+    translate: [-25, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 10:39hrs
+  },
+  {
+    name: "Uranus",
+    source: { obj: asset("uranus/earth.obj") },
+    lit: true,
+    diameter: 49532,
+    translate: [-55, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 17:14hrs
+  },
+  {
+    name: "Neptune",
+    source: { obj: asset("neptune/earth.obj") },
+    lit: true,
+    diameter: 51118,
+    translate: [-80, 0, -100],
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
+    //days: 16:07hrs
   }
 ]
 
@@ -35,6 +98,7 @@ class SolarSystem extends React.Component
 {
   constructor(props){
     super();
+    this.planets = SolarPlanets;
     this.state = {
       activeFragment: 0
     }
@@ -45,12 +109,16 @@ class SolarSystem extends React.Component
     if (this.state.activeFragment === 0)
     {
       displayedFragment =      
-        SolarPlanets.map((planet) => 
-          <Model 
-          // name={planet.name}
-          lit={planet.lit}
-          source={planet.source}
-          style={planet.style}
+        this.planets.map((planet) => 
+          <Planet 
+            name={planet.name}
+            lit={planet.lit}
+            source={planet.source}
+            rotateX={0}
+            rotateY={0}
+            rotateZ={0}
+            translate={planet.translate}
+            diameter={planet.diameter}
           />
         )
     }
@@ -69,3 +137,5 @@ class SolarSystem extends React.Component
 }
 
 export default SolarSystem;
+
+

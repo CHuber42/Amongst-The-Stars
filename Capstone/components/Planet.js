@@ -1,28 +1,39 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
+import {Model} from "react-vr";
 
-
-export default class Planet extends CelestialObject
+class Planet extends React.Component
 {
   constructor(props)
   {
     super();
-    this.lit = props.lit,
+    this.lit = props.lit
     this.source = props.source,
     this.name = props.name,
-    this.style = props.style
+    this.moons = [],
+    this.children = [],
+    this.style = {
+      transform: [
+        { translate: props.translate },
+        { scale: props.diameter/2548400 },
+        { rotateX: props.rotateX },
+        { rotateY: props.rotateY },
+        { rotateZ: props.rotateZ }
+    ]}
   }
 
-  render()
-  {
+  render(){
+   return (
     <Model
       source={this.source}
       lit={this.lit}
       name={this.name}
       style={this.style}
     />
-  }
+  )}
 }
+
+export default Planet;
 
 //   UpdateGalacticSphere()
 //   {

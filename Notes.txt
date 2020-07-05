@@ -12,3 +12,12 @@ and 0/24 hours 0/360% RA is +X (Right)
 -90 degrees polar angle is -Y
 +90 degrees declination is +Y
 -90 degrees declination is -Y
+
+
+SCALE:
+ASSUMING:
+that Earth is at scale .005, and that the earth is 12742 km in Diameter, 
+THEN:
+Scale = 1 occurs at D = 2,548,400 km.
+THEREFORE:
+Scale = Diameter/2548400

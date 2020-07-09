@@ -71,6 +71,7 @@ export default class Capstone extends React.Component {
   }
 
   render() {
+
     return (
       <View>
         <Pano source={{ uri: this.spaceSkymap }}/>
@@ -145,7 +146,7 @@ export default class Capstone extends React.Component {
             lit={true}
             />  */}
 
-        <SolarSystem/>
+        <SolarSystem globalRotation={this.state.rotation}/>
         <Model // SUN
           style={{
             transform : [

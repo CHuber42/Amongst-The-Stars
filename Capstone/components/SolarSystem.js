@@ -34,7 +34,7 @@ let SolarPlanets =
     rotateX: 20,
     rotateY: 180,
     rotateZ: -10,
-    translate: [48, 0, -100]
+    translate: [0, 0, -5]
     //days: 23:56hrs
   },
   {
@@ -50,7 +50,7 @@ let SolarPlanets =
   },
   {
     name: "Jupiter",
-    source: { obj: asset("jupiter/earth.obj") },
+    source: { obj: asset("jupiter/earth.obj")},
     lit: true,
     diameter: 142984,
     translate: [15, 0, -100],
@@ -96,11 +96,12 @@ let SolarPlanets =
 
 class SolarSystem extends React.Component
 {
-  constructor(props){
+  constructor(){
     super();
     this.planets = SolarPlanets;
     this.state = {
-      activeFragment: 0
+      activeFragment: 0,
+      rotation: 0
     }
   }
 
@@ -119,6 +120,7 @@ class SolarSystem extends React.Component
             rotateZ={planet.rotateZ}
             translate={planet.translate}
             diameter={planet.diameter}
+            globalRotation={this.props.globalRotation}
           />
         )
     }

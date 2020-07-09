@@ -13,6 +13,7 @@ class Planet extends React.Component
     this.name = props.name,
     this.moons = [],
     this.children = [],
+    this.rateOfRotation = 5,
     this.style = {
       transform: [
         { translate: props.translate },
@@ -23,15 +24,29 @@ class Planet extends React.Component
     ]}
   }
 
+//ROTATE NEXT
+  componentDidUpdate(){
+    this.style = {
+      transform: [
+        { translate: this.props.translate },
+        { scale: this.props.diameter/PlanetaryScale },
+        { rotateX: this.props.rotateX },
+        { rotateY: this.props.rotateY + this.props.globalRotation },
+        { rotateZ: this.props.rotateZ }
+    ]}
+  }
+
+
   render(){
-   return (
-    <Model
-      source={this.source}
-      lit={this.lit}
-      name={this.name}
-      style={this.style}
-    />
-  )}
+    return (
+      <Model
+        source={this.source}
+        lit={this.lit}
+        name={this.name}
+        style={this.style}
+      />
+    )
+  }
 }
 
 export default Planet;

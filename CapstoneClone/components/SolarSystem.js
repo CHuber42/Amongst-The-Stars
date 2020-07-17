@@ -6,14 +6,14 @@ let SolarPlanets =
 [
   {
     name: "Mercury",
-    source: { obj: asset("mercury/earth.obj"), mtl: asset("mercury/earth.mtl") },
+    source: { obj: asset("mercury/earth.obj")},
     lit: true,
     diameter: 4878,
     translate: [60, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: true
+    update: false
     //days: 59x
   },
   {
@@ -30,13 +30,13 @@ let SolarPlanets =
   },
   {
     name: "Earth",
-    source: { obj: asset("earth/earth.obj"), mtl: asset("earth/earth.mtl") },
+    source: { obj: asset("earth/earth.obj"), mtl: asset("earth/earth.mtl")  },
     lit: true,
     diameter: 12742,
     rotateX: 0,
     rotateZ: -21,
     rotateY: 0,
-    translate: [0, 0, -5],
+    translate: [48, 0, -100],
     update: true
     //days: 23:56hrs
   },
@@ -54,7 +54,7 @@ let SolarPlanets =
   },
   {
     name: "Jupiter",
-    source: { obj: asset("jupiter/earth.obj")},
+    source: { obj: asset("jupiter/earth.obj") },
     lit: true,
     diameter: 142984,
     translate: [15, 0, -100],

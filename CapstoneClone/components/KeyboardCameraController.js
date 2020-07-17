@@ -5,9 +5,9 @@
 import {Vector3, Quaternion} from 'three';
 
 
-const SPEED = 0.2;
-const MOVING_DISTANCE = 10;
+const SPEED = 0.04;
 const JUMP_HEIGHT = 30;
+const MAXSPEED = 1;
 
 class ObjectNotation {
 	position = null;
@@ -48,66 +48,62 @@ export default class KeyboardCameraController {
 
 
 		document.addEventListener('keydown', (event) => this._onKeyDown(event));
-		// document.addEventListener('up', (event) => this._onKeyUp(event));
 
-		window.addEventListener("message", (event) => {
-			if(event.data.type ==='KEYBOARD_CAMERA_CONTROLLER_MESSAGE')
-			{
-				if(event.data.direction ==='UP')
-				{
-					this._moveForward();
-				}else if(event.data.direction ==='DOWN')
-				{
-					this._moveBackward();
-				}else if(event.data.direction ==='LEFT')
-				{
-					this._moveLeft();
-				}else if(event.data.direction ==='RIGHT')
-				{
-					this._moveRight();
-				}else if(event.data.direction ==='SPACE')
-				{
-					this._jump();
-				}
-			}
-		}, false);
+
+		// window.addEventListener("message", (event) => {
+		// 	if(event.data.type ==='KEYBOARD_CAMERA_CONTROLLER_MESSAGE')
+		// 	{
+		// 		if(event.data.direction ==='UP')
+		// 		{
+		// 			this._moveForward();
+		// 		}else if(event.data.direction ==='DOWN')
+		// 		{
+		// 			this._moveBackward();
+		// 		}else if(event.data.direction ==='LEFT')
+		// 		{
+		// 			this._moveLeft();
+		// 		}else if(event.data.direction ==='RIGHT')
+		// 		{
+		// 			this._moveRight();
+		// 		}else if(event.data.direction ==='SPACE')
+		// 		{
+		// 			this._jump();
+		// 		}
+		// 	}
+		// }, false);
 	}
 
 	_moveForward = () => {
-		this._movingZ = -SPEED;
+		this._movingZ += -SPEED;
 	}
 
 	_moveBackward = () => {
-		this._movingZ = SPEED;
+		this._movingZ += SPEED;
 	}
 
 	_moveLeft = () => {
-		this._movingX = -SPEED;
+		this._movingX += -SPEED;
 	}
 
 	_moveRight = () => {
-		this._movingX = SPEED;
+		this._movingX += SPEED;
 	}
 
 	_jump = () => {
-		this._movingY = SPEED;
+		this._movingY += SPEED;
 	}
-
-
-	// _onKeyDown = (event) => {
-	// }
 
 	_onKeyDown = (event) => {
 		if (event.keyCode === 38 || event.keyCode === 87) {
 			this._moveForward();
 		}
-		else if (event.keyCode === 40 || event.keyCode === 83) {
+		if (event.keyCode === 40 || event.keyCode === 83) {
 			this._moveBackward();
 		}
-		else if (event.keyCode === 37 || event.keyCode === 65) {
+		if (event.keyCode === 37 || event.keyCode === 65) {
 			this._moveLeft();
 		}
-		else if (event.keyCode === 39 || event.keyCode === 68) {
+		if (event.keyCode === 39 || event.keyCode === 68) {
 			this._moveRight();
 		}
 		else if (event.keyCode === 32) {
@@ -127,59 +123,44 @@ export default class KeyboardCameraController {
 
 		const cameraObjectNotation = new ObjectNotation(position, quaternion);
 
-		if(this._movingZ !== 0)
-		{
-			cameraObjectNotation.translateZ(this._movingZ);
-
-
-			this._movingZ += this._movingZ;
-			if(Math.abs(this._movingZ) >= MOVING_DISTANCE)
-			{
-				this._movingZ = 0;
-			}
-
-			positionArray[0] = cameraObjectNotation.position.x;
-			// positionArray[1] = cameraObjectNotation.position.y; // i don't want to fly
-			positionArray[2] = cameraObjectNotation.position.z;
+		
+		cameraObjectNotation.translateY(this._movingY);
+		cameraObjectNotation.translateX(this._movingX);
+		cameraObjectNotation.translateZ(this._movingZ);
+		if(this._movingZ >= MAXSPEED){
+			this._movingZ = MAXSPEED;
 		}
-
-		if(this._movingX !== 0)
-		{
-			cameraObjectNotation.translateX(this._movingX);
-
-			this._movingX += this._movingX;
-			if(Math.abs(this._movingX) >= MOVING_DISTANCE)
-			{
-				this._movingX = 0;
-			}
-
-			positionArray[0] = cameraObjectNotation.position.x;
-			// positionArray[1] = cameraObjectNotation.position.y; // i don't want to fly
-			positionArray[2] = cameraObjectNotation.position.z;
+		if(this._movingX >= MAXSPEED){
+			this._movingX = MAXSPEED;
 		}
-
-
-		if(this._movingY !== 0)
-		{
-			cameraObjectNotation.translateY(this._movingY);
-
-
-			this._movingY += this._movingY;
-			if(Math.abs(this._movingY) >= JUMP_HEIGHT)
-			{
-				this._movingY = -SPEED;
-			} 
-
-			positionArray[1] = cameraObjectNotation.position.y; // i just want to fly
-
-			if(positionArray[1] < 0)
-			{
-				// i don't want go to hell
-				
-				this._movingY = 0;
-				positionArray[1] = 0;
-			}
+		if(this._movingY >= MAXSPEED){
+			this._movingY = MAXSPEED;
 		}
+		positionArray[0] = cameraObjectNotation.position.x;
+		positionArray[1] = cameraObjectNotation.position.y; 
+		positionArray[2] = cameraObjectNotation.position.z;
+		this._movingZ *= .85;
+		this._movingX *= .85;
+		this._movingY *= .85;
+	
+		// if(this._movingX !== 0)
+		// {
+		// 	cameraObjectNotation.translateX(this._movingX);
+		// 	positionArray[0] = cameraObjectNotation.position.x;
+		// 	positionArray[1] = cameraObjectNotation.position.y; // i don't want to fly
+		// 	positionArray[2] = cameraObjectNotation.position.z;
+		// 	this._movingX *= .85;
+		// }
+
+
+		// if(this._movingY !== 0)
+		// {
+		// 	cameraObjectNotation.translateY(this._movingY);
+		// 	positionArray[0] = cameraObjectNotation.position.x;
+		// 	positionArray[1] = cameraObjectNotation.position.y; // i don't want to fly
+		// 	positionArray[2] = cameraObjectNotation.position.z;
+		// 	this._movingY *= .85;
+		// }
 
 
 		return true;

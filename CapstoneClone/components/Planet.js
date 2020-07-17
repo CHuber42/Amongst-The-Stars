@@ -44,12 +44,11 @@ class Planet extends React.Component
 
   render(props){
     let displayedPlanet = <Model
-    source={this.source}
-    lit={this.lit}
-    name={this.name}
-    style={this.style}
-  />;
-  console.log(displayedPlanet);
+                            source={this.source}
+                            lit={this.lit}
+                            name={this.name}
+                            style={this.style}
+                          />;
     return (
       <View>
        {displayedPlanet}

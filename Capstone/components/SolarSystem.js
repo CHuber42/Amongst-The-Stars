@@ -12,7 +12,8 @@ let SolarPlanets =
     translate: [60, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 59x
   },
   {
@@ -23,7 +24,8 @@ let SolarPlanets =
     translate: [55, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 243x
   },
   {
@@ -31,10 +33,11 @@ let SolarPlanets =
     source: { obj: asset("earth/earth.obj"), mtl: asset("earth/earth.mtl") },
     lit: true,
     diameter: 12742,
-    rotateX: 20,
-    rotateY: 180,
-    rotateZ: -10,
-    translate: [0, 0, -5]
+    rotateX: 0,
+    rotateZ: -21,
+    rotateY: 0,
+    translate: [0, 0, -5],
+    update: true
     //days: 23:56hrs
   },
   {
@@ -45,7 +48,8 @@ let SolarPlanets =
     translate: [42, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 24:37hrs
   },
   {
@@ -56,7 +60,8 @@ let SolarPlanets =
     translate: [15, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 9:55hrs
   },
   {
@@ -67,7 +72,8 @@ let SolarPlanets =
     translate: [-25, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 10:39hrs
   },
   {
@@ -78,7 +84,8 @@ let SolarPlanets =
     translate: [-55, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 17:14hrs
   },
   {
@@ -89,7 +96,8 @@ let SolarPlanets =
     translate: [-80, 0, -100],
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    update: false
     //days: 16:07hrs
   }
 ]
@@ -120,6 +128,7 @@ class SolarSystem extends React.Component
             rotateZ={planet.rotateZ}
             translate={planet.translate}
             diameter={planet.diameter}
+            update={planet.update}
             globalRotation={this.props.globalRotation}
           />
         )

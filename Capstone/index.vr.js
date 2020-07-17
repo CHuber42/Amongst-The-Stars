@@ -21,7 +21,7 @@ export default class Capstone extends React.Component {
     super();
     this.state = 
     {
-      rotation: 130,
+      rotation: 0,
       zoom: 0,
     }
     this.spaceSkymap = 

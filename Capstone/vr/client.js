@@ -4,6 +4,7 @@
 
 // Auto-generated content.
 import {VRInstance} from 'react-vr-web';
+import KeyboardCameraController from '../components/KeyboardCameraController';
 
 
 function init(bundle, parent, options) {
@@ -15,6 +16,7 @@ function init(bundle, parent, options) {
     // Any custom behavior you want to perform on each frame goes here
   };  
   
+  vr.controls.addCameraController(new KeyboardCameraController());
   
   // Begin the animation loop
 

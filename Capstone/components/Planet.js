@@ -10,6 +10,7 @@ class Planet extends React.Component
     super();
     this.lit = props.lit
     this.source = props.source,
+    this.update = props.update,
     this.name = props.name,
     this.moons = [],
     this.children = [],
@@ -18,8 +19,8 @@ class Planet extends React.Component
       transform: [
         { translate: props.translate },
         { scale: props.diameter/PlanetaryScale },
-        { rotateX: props.rotateX },
         { rotateY: props.rotateY },
+        { rotateX: props.rotateX },
         { rotateZ: props.rotateZ }
     ]}
   }
@@ -31,9 +32,13 @@ class Planet extends React.Component
         { translate: this.props.translate },
         { scale: this.props.diameter/PlanetaryScale },
         { rotateX: this.props.rotateX },
-        { rotateY: this.props.rotateY + this.props.globalRotation },
-        { rotateZ: this.props.rotateZ }
+        { rotateZ: this.props.rotateZ },
+        { rotateY: this.props.rotateY + this.props.globalRotation }
     ]}
+  }
+
+  shouldComponentUpdate(){
+    return this.update;
   }
 
 

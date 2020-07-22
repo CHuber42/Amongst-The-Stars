@@ -1,8 +1,8 @@
 Hello. Welcome to what will soon be a rather large Capstone project, but is currently a work-in-progress. Though the official launch date is in late July of 2020, please check back periodically to see how it develops beyond its MVP.
 
-##### Amongst The Stars
+# Amongst The Stars
 ### Author: Christopher Huber
-# Copyright Christopher Huber under the MIT License
+##### Copyright Christopher Huber under the MIT License
 
 ### Intro
 Hello! Welcome to "Amongst The Stars": A first-person, VR-compatible space simulator.  

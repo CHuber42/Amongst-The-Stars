@@ -140,7 +140,7 @@ class SolarSystem extends React.Component
 
     return(
       <View>
-        <AmbientLight intensity={3.6} />
+ 
         {displayedFragment}
       </View>
       );

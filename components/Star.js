@@ -1,6 +1,6 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
-import {Model, asset, VrButton} from "react-360"
+import {Model, asset, VrButton, View} from "react-360"
 import SolarSystem from "./SolarSystem";
 
 
@@ -43,6 +43,10 @@ class Star extends React.Component
   //   }
   // }
 
+  toggleExpand(props){
+    this.expanded = !this.expanded;
+    console.log(props.globalRotation);
+  }
 
   render(){
     let displayedStar = <Model // SUN
@@ -57,17 +61,17 @@ class Star extends React.Component
                           />
     if(this.expanded){
       return (
-        <VrButton onClick={() => console.log("hi")}>
-          {displayedStar}
-        </VrButton>
         <View>
-          <SolarSystem/>
+          <VrButton onClick={() => this.toggleExpand(this.props)}>
+            {displayedStar}
+          </VrButton>
+          <SolarSystem globalRotation={this.props.globalRotation}/>
         </View>
       )
     }
     else{
       return (
-        <VrButton onClick={() => console.log("hi")}>
+        <VrButton onClick={() => this.toggleExpand(this.props)}>
           {displayedStar}
         </VrButton>
       )

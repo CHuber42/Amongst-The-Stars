@@ -18,6 +18,16 @@ import SolarSystem from './components/SolarSystem';
 import ContextRing from './components/ContextRing';
 import { SurfaceShape } from 'react-360-web/js/Compositor/Surface';
 import CurrentPost from "./components/CurrentPost";
+import Star from "./components/Star";
+
+const sol = [
+  {
+    translate: [280, 0, -100],
+    scale: .5,
+    source: {obj: asset("sol/sol.obj"), mtl: asset('sol/sol.mtl')},
+    lit: true
+  }
+]
 
 export default class capstone extends React.Component {
   constructor() {
@@ -48,25 +58,7 @@ export default class capstone extends React.Component {
     });
 
     this.lastUpdate = Date.now();
-    this.rotate = this.rotate.bind(this);
-
-    // //////////////////////////////
-  
-    let SolStar = <Model // SUN
-                    style={{
-                      transform : [
-                        {translate: [280, 0, -100]},
-                        {scale: .5}
-                      ]
-                    }}
-                    source={{obj: asset("sol/sol.obj"), mtl: asset('sol/sol.mtl')}}
-                    lit={true}         
-                    />
-    
-    this.stars=[SolStar];
-
-
-    
+    this.rotate = this.rotate.bind(this);   
   }
   
   componentDidMount() {
@@ -97,7 +89,7 @@ export default class capstone extends React.Component {
       <View>
         <Pano source={{ uri: this.spaceSkymap }}/>
         <SolarSystem globalRotation={this.state.rotation}/>
-        {this.stars[0]}
+        <Star/>
       </View>
     );
   }

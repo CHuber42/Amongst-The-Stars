@@ -42,7 +42,7 @@ class Planet extends React.Component
   }
 
   myClick(){
-    console.log(this.name)
+    console.log(props.name)
   }
 
 

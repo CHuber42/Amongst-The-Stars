@@ -1,6 +1,6 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
-import {Model, View, VrButton} from "react-360";
+import {Model, VrButton} from "react-360";
 import {PlanetaryScale} from "./GlobalVarsAndFunctions";
 
 class Planet extends React.Component
@@ -41,10 +41,6 @@ class Planet extends React.Component
     return this.update;
   }
 
-  myClick(){
-    console.log(props.name)
-  }
-
 
   render(props){
     let displayedPlanet = <Model
@@ -52,12 +48,11 @@ class Planet extends React.Component
                             lit={this.lit}
                             name={this.name}
                             style={this.style}
-
                           />;
     return (
-      <View>
+      <VrButton onClick={() => console.log(displayedPlanet.props.name)}>
        {displayedPlanet}
-      </View>
+      </VrButton>
     )
   }
 }

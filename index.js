@@ -64,6 +64,8 @@ export default class capstone extends React.Component {
                     />
     
     this.stars=[SolStar];
+
+
     
   }
   

@@ -4,6 +4,9 @@
 import {ReactInstance, Surface} from 'react-360-web';
 import KeyboardCameraController from './components/KeyboardCameraController';
 import MouseLockCameraController from '@martinpham/react-360-mouse-lock-camera-controller';
+import CustomRaycaster from "./components/Raycaster";
+// import { MouseRaycaster } from 'react-360-web';
+
 
 
 
@@ -26,13 +29,12 @@ function init(bundle, parent, options = {}) {
       rightPanel,
     );
 
-  // Render your app content to the default cylinder surface
-  setInterval(function(){console.log(capstone.controls); }, 1000);
 
 capstone.renderToLocation(
   capstone.createRoot('capstone'),
   capstone.getDefaultLocation(),
 );
+
 
   // Load the initial environment
   // capstone.compositor.setBackground(capstone.getAssetURL('chess-world.jpg'));

@@ -89,7 +89,7 @@ export default class capstone extends React.Component {
       <View>
         <Pano source={{ uri: this.spaceSkymap }}/>
         <AmbientLight intensity={3.6} />
-        <Star globalRotation={this.state.rotation}/>
+        <Star attributes={sol[0]} globalRotation={this.state.rotation}/>
       </View>
     );
   }

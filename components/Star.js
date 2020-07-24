@@ -9,9 +9,7 @@ class Star extends React.Component
   constructor(props)
   {
     super();
-    this.lit = true;
     this.expanded = false;
-
   }
 
   // UpdateGalacticSphere()
@@ -43,26 +41,25 @@ class Star extends React.Component
   //   }
   // }
 
-  toggleExpand(props){
+  toggleExpand(){
     this.expanded = !this.expanded;
-    console.log(props.globalRotation);
   }
 
   render(){
-    let displayedStar = <Model // SUN
+    let displayedStar = <Model
                           style={{
                             transform : [
-                              {translate: [280, 0, -100]},
-                              {scale: .5}
+                              {translate: this.props.attributes.translate},
+                              {scale: this.props.attributes.scale}
                             ]
                           }}
-                          source={{obj: asset("sol/sol.obj"), mtl: asset('sol/sol.mtl')}}
-                          lit={true}         
+                          source={this.props.attributes.source}
+                          lit={this.props.attributes.lit}         
                           />
     if(this.expanded){
       return (
         <View>
-          <VrButton onClick={() => this.toggleExpand(this.props)}>
+          <VrButton onClick={() => this.toggleExpand()}>
             {displayedStar}
           </VrButton>
           <SolarSystem globalRotation={this.props.globalRotation}/>
@@ -71,7 +68,7 @@ class Star extends React.Component
     }
     else{
       return (
-        <VrButton onClick={() => this.toggleExpand(this.props)}>
+        <VrButton onClick={() => this.toggleExpand()}>
           {displayedStar}
         </VrButton>
       )

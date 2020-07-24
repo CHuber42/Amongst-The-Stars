@@ -52,7 +52,7 @@ class Planet extends React.Component
                             lit={this.lit}
                             name={this.name}
                             style={this.style}
-                            onClick={this.myClick}
+
                           />;
     return (
       <View>

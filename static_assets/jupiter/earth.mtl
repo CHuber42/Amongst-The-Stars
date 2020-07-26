@@ -24,11 +24,11 @@ newmtl 02___Default
 	d 1.0000
 	Tr 0.0000
 	Tf 1.0000 1.0000 1.0000 
-	illum 2
+	illum 0
 	Ka 0.5882 0.5882 0.5882
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka 4096_earth.jpg
-	map_Kd 4096_earth.jpg
-	map_d 4096_earth.jpg
+	map_Ka jupiter2_4k.jpg
+	map_Kd jupiter2_4k.jpg
+	map_d jupiter2_4k.jpg

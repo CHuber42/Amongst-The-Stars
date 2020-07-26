@@ -29,6 +29,6 @@ newmtl 02___Default
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka 4096_earth.jpg
-	map_Kd 4096_earth.jpg
-	map_d 4096_earth.jpg
+	map_Ka uranusmap.jpg
+	map_Kd uranusmap.jpg
+	map_d uranusmap.jpg

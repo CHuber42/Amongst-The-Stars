@@ -5,7 +5,8 @@
 import {Vector3, Quaternion} from 'three';
 
 
-const SPEED = 0.04;
+// const SPEED = 0.04;
+const SPEED = 0.44;
 const JUMP_HEIGHT = 30;
 const MAXSPEED = 1;
 

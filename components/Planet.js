@@ -50,7 +50,7 @@ class Planet extends React.Component
                             style={this.style}
                           />;
     return (
-      <VrButton onClick={() => console.log(displayedPlanet.props.name)}>
+      <VrButton onClick={() => console.log(displayedPlanet)}>
        {displayedPlanet}
       </VrButton>
     )

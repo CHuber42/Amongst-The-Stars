@@ -12,11 +12,10 @@ newmtl 01___Default
 	Kd 0.0000 0.0000 0.0000
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka 2k_sun.jpg
+
 	map_Kd 2k_sun.jpg
 	map_Ke 2k_sun.jpg
-	map_bump 2k_sun.jpg
-	bump 2k_sun.jpg
+
 
 newmtl 02___Default
 	Ns 10.0000
@@ -29,6 +28,6 @@ newmtl 02___Default
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka 2k_sun.jpg
+
 	map_Kd 2k_sun.jpg
 	map_d 2k_sun.jpg

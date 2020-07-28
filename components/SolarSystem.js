@@ -21,7 +21,7 @@ let SolarPlanets =
     source: { obj: asset("venus/earth.obj"), mtl: asset("venus/earth.mtl")},
     lit: true,
     diameter: 12104,
-    translate: [55, 0, -100],
+    translate: [35, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
@@ -36,7 +36,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateZ: -21,
     rotateY: 0,
-    translate: [48, 0, -100],
+    translate: [10, 0, -100],
     update: true
     //days: 23:56hrs
   },
@@ -45,7 +45,7 @@ let SolarPlanets =
     source: { obj: asset("mars/earth.obj"), mtl: asset("mars/earth.mtl") },
     lit: true,
     diameter: 6794,
-    translate: [42, 0, -100],
+    translate: [-5, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
@@ -57,7 +57,7 @@ let SolarPlanets =
     source: { obj: asset("jupiter/earth.obj"), mtl: asset("jupiter/earth.mtl")  },
     lit: false,
     diameter: 142984,
-    translate: [15, 0, -100],
+    translate: [-35, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
@@ -69,7 +69,7 @@ let SolarPlanets =
     source: { obj: asset("saturn/earth.obj"), mtl: asset("saturn/earth.mtl") },
     lit: true,
     diameter: 120536,
-    translate: [-25, 0, -100],
+    translate: [-90, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
@@ -81,7 +81,7 @@ let SolarPlanets =
     source: { obj: asset("uranus/earth.obj"), mtl: asset("uranus/earth.mtl") },
     lit: true,
     diameter: 49532,
-    translate: [-55, 0, -100],
+    translate: [-130, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
@@ -93,7 +93,7 @@ let SolarPlanets =
     source: { obj: asset("neptune/earth.obj"), mtl: asset("neptune/earth.mtl") },
     lit: true,
     diameter: 51118,
-    translate: [-80, 0, -100],
+    translate: [-170, 0, -100],
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
@@ -114,6 +114,7 @@ class SolarSystem extends React.Component
   }
 
   render(){
+    // console.log(this.props.globalData)
     let displayedFragment;
     if (this.state.activeFragment === 0)
     {
@@ -129,7 +130,7 @@ class SolarSystem extends React.Component
             translate={planet.translate}
             diameter={planet.diameter}
             update={planet.update}
-            globalRotation={this.props.globalRotation}
+            globalData={this.props.globalData}
             parentCoordinates={this.props.parentCoordinates}
           />
         )

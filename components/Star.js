@@ -48,7 +48,7 @@ class Star extends React.Component
   }
 
   render(){
-    // console.log(myCamera)
+    // console.log(this.props.globalData)
     let displayedStar = <Model
                           style={{
                             transform : [
@@ -65,8 +65,8 @@ class Star extends React.Component
           <VrButton onClick={() => this.toggleExpand()}>
             {displayedStar}
           </VrButton>
-          <SolarSystem parentCoordinates={this.props.attributes.translate} globalRotation={this.props.globalRotation}/>
-          <ContextRing globalRotation={this.props.globalRotation} scale={this.props.attributes.scale} parentCoordinates={this.props.attributes.translate}/>
+          <SolarSystem globalData={this.props.globalData} parentCoordinates={this.props.attributes.translate}/>
+          <ContextRing globalData={this.props.globalData} scale={this.props.attributes.scale} parentCoordinates={this.props.attributes.translate}/>
         </View>
       )
     }

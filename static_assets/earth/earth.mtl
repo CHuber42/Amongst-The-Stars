@@ -31,8 +31,8 @@ newmtl 01___Default
 	map_Ka 4096_earth.jpg
 	map_Kd 4096_earth.jpg
 	map_Ke 4096_night_lights.jpg
-	map_bump 4096_bump.jpg
-	bump 4096_bump.jpg
+	map_bump 4096_bump.jpg -bm 1.0
+	bump 4096_bump.jpg -bm 1.0
 
 newmtl 02___Default
 	Ns 10.0000

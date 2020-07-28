@@ -38,7 +38,7 @@ export default class capstone extends React.Component {
     this.state = 
     {
       rotation: 0,
-      zoom: 0,
+      cameraLocation: [0,0,0]
     }
     this.spaceSkymap = 
     [
@@ -62,7 +62,6 @@ export default class capstone extends React.Component {
 
     this.lastUpdate = Date.now();
     this.rotate = this.rotate.bind(this);   
-    this.cameraLocation = [0, 0, 0];
   }
   
   componentDidMount() {
@@ -84,22 +83,22 @@ export default class capstone extends React.Component {
     this.setState({
       rotation: this.state.rotation + delta / 150
     });
+    LocationModule.getCameraLocation(someLocation => {
+      this.setState({
+        cameraLocation: someLocation
+      });
+    });
     this.frameHandle = requestAnimationFrame(this.rotate);
   }
 
-  getCamera(){
-    LocationModule.getCameraLocation(someLocation => {
-      this.cameraLocation = someLocation;
-    });
-  }
 
   render() {
-    this.getCamera();
+    // console.log(this.state.cameraLocation);
     return (
       <View>
         <Pano source={{ uri: this.spaceSkymap }}/>
           <AmbientLight intensity={1.6} />
-        <Star attributes={sol[0]} globalRotation={this.state.rotation}/>
+        <Star attributes={sol[0]} globalData={this.state}/>
       </View>
     );
   }

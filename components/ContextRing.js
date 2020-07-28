@@ -11,7 +11,7 @@ import {CalculateRelativeAngles} from './GlobalVarsAndFunctions';
 
 class ContextRing extends React.Component
 {
-  constructor(props)
+  constructor()
   {
     super();
   }
@@ -21,9 +21,9 @@ class ContextRing extends React.Component
   }
 
   render(){
-    const player = [0, 0, 0];
-    const rotationAngles = CalculateRelativeAngles(player, this.props.parentCoordinates);
+    const rotationAngles = CalculateRelativeAngles(this.props.globalData.cameraLocation, this.props.parentCoordinates);
     const edge = 1200*this.props.scale;
+    let rotation = this.props.globalData.rotation;
   const translationArray = [(this.props.parentCoordinates[0] - edge/2), (this.props.parentCoordinates[1] + edge/2), this.props.parentCoordinates[2]];
   const styles = StyleSheet.create({
     wrapper: {
@@ -31,27 +31,20 @@ class ContextRing extends React.Component
       height: edge,
       transform: [
         {translate: translationArray},
-        {rotateX: rotationAngles[0]},
         {rotateY: rotationAngles[1]},
-        {rotateZ: this.props.globalRotation},
+        {rotateX: rotationAngles[0]},
+        {rotateZ: rotation},
         {scale: 1}
       ],
       },
   });
 
-  if(this.props.parentName == "Earth")
-  {
-    console.log(this.props.parentCoordinates[0] - edge/2)
-  }
   return (
     <View>
-      <Image source={asset('newtarget.png')} style={styles.wrapper}/>
+      <Image source={asset('target2.png')} style={styles.wrapper}/>
     </View>
   );
   }
 }
-
-
-  
 
 export default ContextRing;

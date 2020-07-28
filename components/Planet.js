@@ -31,7 +31,6 @@ class Planet extends React.Component
 
   toggleExpanded(){
     this.expanded = !this.expanded;
-    console.log(this.name, this.expanded)
   }
 
 //ROTATE NEXT
@@ -62,7 +61,7 @@ class Planet extends React.Component
         { scale: this.props.diameter/PlanetaryScale },
         { rotateX: this.props.rotateX },
         { rotateZ: this.props.rotateZ },
-        { rotateY: this.props.rotateY + this.props.globalRotation }
+        { rotateY: this.props.rotateY + this.props.globalData.rotation }
     ]}
   }
 
@@ -92,7 +91,7 @@ class Planet extends React.Component
                           />;
     let contextRing = <ContextRing 
                             parentCoordinates={this.style.transform[0].translate} 
-                            globalRotation={this.props.globalRotation} 
+                            globalData={this.props.globalData} 
                             scale={this.style.transform[1].scale}
                           />;
     if (this.expanded){

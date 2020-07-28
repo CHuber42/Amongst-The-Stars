@@ -22,12 +22,12 @@ function init(bundle, parent, options = {}) {
 
     // CAPSULE
 
-  const rightPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
-  rightPanel.setAngle(0.6, 0);
-    capstone.renderToSurface(
-      capstone.createRoot('CurrentPost'),
-      rightPanel,
-    );
+  // const rightPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
+  // rightPanel.setAngle(0.6, 0);
+  //   capstone.renderToSurface(
+  //     capstone.createRoot('CurrentPost'),
+  //     rightPanel,
+  //   );
 
 
 capstone.renderToLocation(

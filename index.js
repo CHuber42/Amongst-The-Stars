@@ -17,7 +17,6 @@ import {
 import SolarSystem from './components/SolarSystem';
 import ContextRing from './components/ContextRing';
 import { SurfaceShape } from 'react-360-web/js/Compositor/Surface';
-import CurrentPost from "./components/CurrentPost";
 import Star from "./components/Star";
 
 const sol = [
@@ -90,6 +89,7 @@ export default class capstone extends React.Component {
         <Pano source={{ uri: this.spaceSkymap }}/>
         <AmbientLight intensity={1.6} />
         <Star attributes={sol[0]} globalRotation={this.state.rotation}/>
+        {/* <ContextRing globalRotation={this.state.rotation}/> */}
       </View>
     );
   }

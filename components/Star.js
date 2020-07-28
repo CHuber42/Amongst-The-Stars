@@ -2,6 +2,7 @@ import CelestialObject from "./CelestialObject";
 import React from "react";
 import {Model, asset, VrButton, View} from "react-360"
 import SolarSystem from "./SolarSystem";
+import ContextRing from "./ContextRing";
 
 
 class Star extends React.Component
@@ -63,6 +64,7 @@ class Star extends React.Component
             {displayedStar}
           </VrButton>
           <SolarSystem parentCoordinates={this.props.attributes.translate} globalRotation={this.props.globalRotation}/>
+          <ContextRing globalRotation={this.props.globalRotation}/>
         </View>
       )
     }

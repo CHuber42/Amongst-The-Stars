@@ -1,7 +1,8 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
-import {Model, VrButton} from "react-360";
+import {Model, asset, VrButton, View} from "react-360";
 import {PlanetaryScale} from "./GlobalVarsAndFunctions";
+import ContextRing from "./ContextRing";
 
 class Planet extends React.Component
 {
@@ -26,6 +27,11 @@ class Planet extends React.Component
         { rotateX: props.rotateX },
         { rotateZ: props.rotateZ }
     ]}
+  }
+
+  toggleExpanded(){
+    this.expanded = !this.expanded;
+    console.log(this.name, this.expanded)
   }
 
 //ROTATE NEXT
@@ -78,18 +84,27 @@ class Planet extends React.Component
 
 
   render(){
-
     let displayedPlanet = <Model
                             source={this.source}
                             lit={this.lit}
                             name={this.name}
                             style={this.style}
                           />;
-    return (
-      <VrButton onClick={() => console.log(this.name)}>
-       {displayedPlanet}
-      </VrButton>
-    )
+    if (this.expanded){
+      return (
+        <VrButton onClick={() => this.toggleExpanded()}>
+        {displayedPlanet}
+        <ContextRing parentCoordinates={this.style.transform[0].translate} globalRotation={this.props.globalRotation} parentName={this.name} scale={this.style.transform[1].scale}/>
+        </VrButton>
+      )
+    }
+    else{
+      return (
+        <VrButton onClick={() => this.toggleExpanded()}>
+         {displayedPlanet}
+        </VrButton>
+      )
+    }
   }
 }
 

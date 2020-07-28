@@ -13,7 +13,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 59x
   },
   {
@@ -25,7 +25,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 243x
   },
   {
@@ -49,7 +49,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 24:37hrs
   },
   {
@@ -61,7 +61,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 9:55hrs
   },
   {
@@ -73,7 +73,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 10:39hrs
   },
   {
@@ -85,7 +85,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 17:14hrs
   },
   {
@@ -97,7 +97,7 @@ let SolarPlanets =
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    update: false
+    update: true
     //days: 16:07hrs
   }
 ]

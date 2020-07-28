@@ -64,7 +64,7 @@ class Star extends React.Component
             {displayedStar}
           </VrButton>
           <SolarSystem parentCoordinates={this.props.attributes.translate} globalRotation={this.props.globalRotation}/>
-          <ContextRing globalRotation={this.props.globalRotation}/>
+          <ContextRing globalRotation={this.props.globalRotation} scale={this.props.attributes.scale} parentCoordinates={this.props.attributes.translate}/>
         </View>
       )
     }

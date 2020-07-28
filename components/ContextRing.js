@@ -9,47 +9,46 @@ import { ImageBackground } from 'react-native';
  */
 
 
+class ContextRing extends React.Component
+{
+  constructor(props)
+  {
+    super();
+  }
 
+  shouldComponentUpdate(){
+    return true;
+  }
 
-const ContextRing = (props) => {
+  render(){
+    const edge = 1200*this.props.scale;
+  const translationArray = [(this.props.parentCoordinates[0] - edge/2), (this.props.parentCoordinates[1] + edge/2), this.props.parentCoordinates[2]];
   const styles = StyleSheet.create({
     wrapper: {
-      width: 600,
-      height: 600,
-      // borderColor: '#303050',
-      // borderWidth: 2,
-      // backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      flexDirection: 'column',
-      justifyContent: 'flex-start',
-      alignItems: 'stretch',
-      // padding: 10,
+      width: edge,
+      height: edge,
       transform: [
-        {translate: [0, 300, -100]},
+        {translate: translationArray},
         {rotateX: 180},
         {rotateY: 60},
-        {rotateZ: props.globalRotation},
+        {rotateZ: this.props.globalRotation},
         {scale: 1}
       ],
       },
-      name: {
-      fontSize: 30,
-      textAlign: 'center',
-      },
-      author: {
-      fontSize: 20,
-      textAlign: 'center',
-      },
-      description: {
-      fontSize: 16,
-      },
   });
-  console.log(props.globalRotation);
+
+  if(this.props.parentName == "Earth")
+  {
+    console.log(this.props.parentCoordinates[0] - edge/2)
+  }
   return (
     <View>
       <Image source={asset('newtarget.png')} style={styles.wrapper}/>
     </View>
   );
-};
+  }
+}
+
 
   
 

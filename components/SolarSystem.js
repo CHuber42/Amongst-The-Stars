@@ -6,7 +6,7 @@ let SolarPlanets =
 [
   {
     name: "Mercury",
-    // source: { obj: asset("mercury/earth.obj"), mtl: asset("mercury/earth.mtl")},
+    source: { obj: asset("mercury/earth.obj"), mtl: asset("mercury/earth.mtl")},
     lit: true,
     diameter: 4878,
     translate: [60, 0, -100],
@@ -18,7 +18,7 @@ let SolarPlanets =
   },
   {
     name: "Venus",
-    // source: { obj: asset("venus/earth.obj"), mtl: asset("venus/earth.mtl")},
+    source: { obj: asset("venus/earth.obj"), mtl: asset("venus/earth.mtl")},
     lit: true,
     diameter: 12104,
     translate: [55, 0, -100],
@@ -42,7 +42,7 @@ let SolarPlanets =
   },
   {
     name: "Mars",
-    // source: { obj: asset("mars/earth.obj"), mtl: asset("mars/earth.mtl") },
+    source: { obj: asset("mars/earth.obj"), mtl: asset("mars/earth.mtl") },
     lit: true,
     diameter: 6794,
     translate: [42, 0, -100],
@@ -54,7 +54,7 @@ let SolarPlanets =
   },
   {
     name: "Jupiter",
-    // source: { obj: asset("jupiter/earth.obj"), mtl: asset("jupiter/earth.mtl")  },
+    source: { obj: asset("jupiter/earth.obj"), mtl: asset("jupiter/earth.mtl")  },
     lit: false,
     diameter: 142984,
     translate: [15, 0, -100],
@@ -66,7 +66,7 @@ let SolarPlanets =
   },
   {
     name: "Saturn",
-    // source: { obj: asset("saturn/earth.obj"), mtl: asset("saturn/earth.mtl") },
+    source: { obj: asset("saturn/earth.obj"), mtl: asset("saturn/earth.mtl") },
     lit: true,
     diameter: 120536,
     translate: [-25, 0, -100],
@@ -78,7 +78,7 @@ let SolarPlanets =
   },
   {
     name: "Uranus",
-    // source: { obj: asset("uranus/earth.obj"), mtl: asset("uranus/earth.mtl") },
+    source: { obj: asset("uranus/earth.obj"), mtl: asset("uranus/earth.mtl") },
     lit: true,
     diameter: 49532,
     translate: [-55, 0, -100],
@@ -90,7 +90,7 @@ let SolarPlanets =
   },
   {
     name: "Neptune",
-    // source: { obj: asset("neptune/earth.obj"), mtl: asset("neptune/earth.mtl") },
+    source: { obj: asset("neptune/earth.obj"), mtl: asset("neptune/earth.mtl") },
     lit: true,
     diameter: 51118,
     translate: [-80, 0, -100],
@@ -130,6 +130,7 @@ class SolarSystem extends React.Component
             diameter={planet.diameter}
             update={planet.update}
             globalRotation={this.props.globalRotation}
+            parentCoordinates={this.props.parentCoordinates}
           />
         )
     }
@@ -140,7 +141,6 @@ class SolarSystem extends React.Component
 
     return(
       <View>
- 
         {displayedFragment}
       </View>
       );

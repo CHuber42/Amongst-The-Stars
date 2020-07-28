@@ -15,9 +15,12 @@ class Planet extends React.Component
     this.moons = [],
     this.children = [],
     this.rateOfRotation = 5,
+    this.expanded = false,
+    this.parentCoordinates = props.parentCoordinates,
+    this.coordinates = props.translate,
     this.style = {
       transform: [
-        { translate: props.translate },
+        { translate: props.parentCoordinates },
         { scale: props.diameter/PlanetaryScale },
         { rotateY: props.rotateY },
         { rotateX: props.rotateX },
@@ -27,9 +30,29 @@ class Planet extends React.Component
 
 //ROTATE NEXT
   componentDidUpdate(){
+    let prevX = this.style.transform[0].translate[0];
+    let prevY = this.style.transform[0].translate[1];
+    let prevZ = this.style.transform[0].translate[2];
+    let targetX = this.coordinates[0];
+    let targetY = this.coordinates[1];
+    let targetZ = this.coordinates[2];
+    let newX = targetX;
+    let newY = targetY;
+    let newZ = targetZ;
+
+    if(Math.abs(prevX - targetX) >= .001){
+      newX = .05*(targetX - prevX) + prevX;
+    }
+    if(Math.abs(prevY != targetY) >= .001){
+      newY = .05*(targetY - prevY) + prevY;
+    }
+    if(Math.abs(prevZ != targetZ) >= .001){
+      newZ = .05*(targetZ - prevZ) + prevZ; 
+    }
+    
     this.style = {
       transform: [
-        { translate: this.props.translate },
+        { translate: [newX, newY, newZ] },
         { scale: this.props.diameter/PlanetaryScale },
         { rotateX: this.props.rotateX },
         { rotateZ: this.props.rotateZ },
@@ -38,11 +61,24 @@ class Planet extends React.Component
   }
 
   shouldComponentUpdate(){
-    return this.update;
+
+    if (this.style.transform[0].translate[0] != this.coordinates[0]){
+      return true;
+    }
+    else if (this.style.transform[0].translate[1] != this.coordinates[1]){
+      return true;
+    }
+    else if (this.style.transform[0].translate[2] != this.coordinates[2]){
+      return true;
+    }
+    else{
+      return this.update;
+    }
   }
 
 
-  render(props){
+  render(){
+
     let displayedPlanet = <Model
                             source={this.source}
                             lit={this.lit}
@@ -50,7 +86,7 @@ class Planet extends React.Component
                             style={this.style}
                           />;
     return (
-      <VrButton onClick={() => console.log(displayedPlanet)}>
+      <VrButton onClick={() => console.log(this.name)}>
        {displayedPlanet}
       </VrButton>
     )

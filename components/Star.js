@@ -62,7 +62,7 @@ class Star extends React.Component
           <VrButton onClick={() => this.toggleExpand()}>
             {displayedStar}
           </VrButton>
-          <SolarSystem globalRotation={this.props.globalRotation}/>
+          <SolarSystem parentCoordinates={this.props.attributes.translate} globalRotation={this.props.globalRotation}/>
         </View>
       )
     }

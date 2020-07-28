@@ -3,6 +3,7 @@ import React from "react";
 import {Model, asset, VrButton, View} from "react-360"
 import SolarSystem from "./SolarSystem";
 import ContextRing from "./ContextRing";
+// import {myCamera} from "../client";
 
 
 class Star extends React.Component
@@ -47,6 +48,7 @@ class Star extends React.Component
   }
 
   render(){
+    // console.log(myCamera)
     let displayedStar = <Model
                           style={{
                             transform : [

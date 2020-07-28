@@ -90,11 +90,16 @@ class Planet extends React.Component
                             name={this.name}
                             style={this.style}
                           />;
+    let contextRing = <ContextRing 
+                            parentCoordinates={this.style.transform[0].translate} 
+                            globalRotation={this.props.globalRotation} 
+                            scale={this.style.transform[1].scale}
+                          />;
     if (this.expanded){
       return (
         <VrButton onClick={() => this.toggleExpanded()}>
         {displayedPlanet}
-        <ContextRing parentCoordinates={this.style.transform[0].translate} globalRotation={this.props.globalRotation} parentName={this.name} scale={this.style.transform[1].scale}/>
+        {contextRing}
         </VrButton>
       )
     }

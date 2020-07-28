@@ -1,19 +1,34 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import {ReactInstance, Surface} from 'react-360-web';
+import {ReactInstance, Surface, Module} from 'react-360-web';
 import KeyboardCameraController from './components/KeyboardCameraController';
 import MouseLockCameraController from '@martinpham/react-360-mouse-lock-camera-controller';
-import CustomRaycaster from "./components/Raycaster";
-// import { MouseRaycaster } from 'react-360-web';
 
+let cameraLocation;
 
+class LocationModule extends Module 
+{
+  constructor(ctx){
+    super('LocationModule');
+    this._ctx = ctx;
+  }
+
+  getCameraLocation(cb){
+    if (this._ctx){
+      this._ctx.invokeCallback(cb,[cameraLocation]);
+    }
+  }
+}
 
 
 function init(bundle, parent, options = {}) {
   const capstone = new ReactInstance(bundle, parent, {
     // Add custom options here
     fullScreen: true,
+    nativeModules: [
+      ctx => new LocationModule(ctx),
+    ],
     ...options,
   });
 
@@ -30,6 +45,9 @@ function init(bundle, parent, options = {}) {
   //   );
 
 
+  cameraLocation = capstone._cameraPosition;
+
+
 capstone.renderToLocation(
   capstone.createRoot('capstone'),
   capstone.getDefaultLocation(),
@@ -39,5 +57,6 @@ capstone.renderToLocation(
   // Load the initial environment
   // capstone.compositor.setBackground(capstone.getAssetURL('chess-world.jpg'));
 }
+
 
 window.React360 = {init};

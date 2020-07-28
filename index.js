@@ -12,12 +12,16 @@ import {
   DirectionalLight,
   SpotLight,
   controls,
-  Surface
+  Surface,
+  NativeModules
 } from 'react-360';
 import SolarSystem from './components/SolarSystem';
 import ContextRing from './components/ContextRing';
 import { SurfaceShape } from 'react-360-web/js/Compositor/Surface';
 import Star from "./components/Star";
+
+const LocationModule = NativeModules.LocationModule;
+
 
 const sol = [
   {
@@ -58,6 +62,7 @@ export default class capstone extends React.Component {
 
     this.lastUpdate = Date.now();
     this.rotate = this.rotate.bind(this);   
+    this.cameraLocation = [0, 0, 0];
   }
   
   componentDidMount() {
@@ -82,14 +87,19 @@ export default class capstone extends React.Component {
     this.frameHandle = requestAnimationFrame(this.rotate);
   }
 
-  render() {
+  getCamera(){
+    LocationModule.getCameraLocation(someLocation => {
+      this.cameraLocation = someLocation;
+    });
+  }
 
+  render() {
+    this.getCamera();
     return (
       <View>
         <Pano source={{ uri: this.spaceSkymap }}/>
-        <AmbientLight intensity={1.6} />
+          <AmbientLight intensity={1.6} />
         <Star attributes={sol[0]} globalRotation={this.state.rotation}/>
-        {/* <ContextRing globalRotation={this.state.rotation}/> */}
       </View>
     );
   }

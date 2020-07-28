@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, VrButton, Image, asset, Environment} from 'react-360';
 import { ImageBackground } from 'react-native';
-
+import {CalculateRelativeAngles} from './GlobalVarsAndFunctions';
 
 /**
  * Render a description of the currently-selected model.
@@ -21,6 +21,8 @@ class ContextRing extends React.Component
   }
 
   render(){
+    const player = [0, 0, 0];
+    const rotationAngles = CalculateRelativeAngles(player, this.props.parentCoordinates);
     const edge = 1200*this.props.scale;
   const translationArray = [(this.props.parentCoordinates[0] - edge/2), (this.props.parentCoordinates[1] + edge/2), this.props.parentCoordinates[2]];
   const styles = StyleSheet.create({
@@ -29,8 +31,8 @@ class ContextRing extends React.Component
       height: edge,
       transform: [
         {translate: translationArray},
-        {rotateX: 180},
-        {rotateY: 60},
+        {rotateX: rotationAngles[0]},
+        {rotateY: rotationAngles[1]},
         {rotateZ: this.props.globalRotation},
         {scale: 1}
       ],

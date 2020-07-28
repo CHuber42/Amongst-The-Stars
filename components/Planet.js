@@ -1,7 +1,7 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
 import {Model, asset, VrButton, View} from "react-360";
-import {PlanetaryScale} from "./GlobalVarsAndFunctions";
+import {PlanetaryScale, CalculateRelativeAngles} from "./GlobalVarsAndFunctions";
 import ContextRing from "./ContextRing";
 
 class Planet extends React.Component

@@ -1,7 +1,7 @@
 import CelestialObject from "./CelestialObject";
 import React from "react";
 import {Model, asset, VrButton, View} from "react-360";
-import {PlanetaryScale, CalculateRelativeAngles} from "./GlobalVarsAndFunctions";
+import {PlanetaryScale} from "./GlobalVarsAndFunctions";
 import ContextRing from "./ContextRing";
 
 class Planet extends React.Component
@@ -94,11 +94,12 @@ class Planet extends React.Component
                             globalData={this.props.globalData} 
                             scale={this.style.transform[1].scale}
                           />;
+                      
     if (this.expanded){
       return (
         <VrButton onClick={() => this.toggleExpanded()}>
-        {displayedPlanet}
-        {contextRing}
+          {displayedPlanet}
+          {contextRing}
         </VrButton>
       )
     }

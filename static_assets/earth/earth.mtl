@@ -1,0 +1,50 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 25.01.2016 02:22:51
+# Ka = ambient color
+# Kd = diffuse color
+# Ks = specular color
+# Tr = transparency (0 = opaque, 1.0 = transparent)
+# Illum settings: 
+# 0. Color on and Ambient off
+# 1. Color on and Ambient on
+# 2. Highlight on
+# 3. Reflection on and Ray trace on
+# 4. Transparency: Glass on, Reflection: Ray trace on
+# 5. Reflection: Fresnel on and Ray trace on
+# 6. Transparency: Refraction on, Reflection: Fresnel off and Ray trace on
+# 7. Transparency: Refraction on, Reflection: Fresnel on and Ray trace on
+# 8. Reflection on and Ray trace off
+# 9. Transparency: Glass on, Reflection: Ray trace off
+# 10. Casts shadows onto invisible surfaces
+
+newmtl 01___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 4096_earth.jpg
+	map_Kd 4096_earth.jpg
+	map_Ke 4096_night_lights.jpg
+	map_bump 4096_bump.jpg -bm 1.0
+	bump 4096_bump.jpg -bm 1.0
+
+newmtl 02___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 4096_earth.jpg
+	map_Kd 4096_earth.jpg
+	map_d 4096_earth.jpg

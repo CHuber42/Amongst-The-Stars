@@ -10,7 +10,7 @@ export function CalculateRelativeAngles(player, object){
     const playerX = player[0];
     const playerY = player[1];
     const playerZ = player[2];
-    const XZDistance = Math.sqrt((playerX - objectX)**2 + (playerZ - objectZ)**2);
+    const XZDistance = Math.sqrt(Math.pow((playerX - objectX),2) + Math.pow((playerZ - objectZ), 2));
     const YDistance = (playerY - objectY);
     let yAxisRotation = Math.atan((playerX - objectX)/(playerZ - objectZ))/(2*Math.PI)*360;
     if(playerZ <= objectZ){

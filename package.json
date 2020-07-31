@@ -1,17 +1,20 @@
 {
+  "homepage": "https://github.io/CHuber42/Amongst-The-Stars",
   "name": "capstone",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle": "node node_modules/react-360/scripts/bundle.js",
+    "bundle": "node node_modules/react-360/scripts/bundle.js && sh node_modules/react-360/scripts/copy_assets.sh",
     "open": "node -e \"require('xopen')('http://localhost:8081/index.html')\"",
     "devtools": "react-devtools",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "node node_modules/react-360/scripts/deploy.js"
   },
   "dependencies": {
     "@martinpham/react-360-keyboard-camera-controller": "^1.0.8",
     "@martinpham/react-360-mouse-lock-camera-controller": "^1.0.5",
+    "gh-pages": "^3.1.0",
     "ovrui": "^1.4.1",
     "react": "16.0.0",
     "react-360": "~1.0.0",

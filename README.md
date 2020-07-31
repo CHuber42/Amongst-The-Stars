@@ -3,6 +3,7 @@ Hello. Welcome to what will soon be a rather large Capstone project, but is curr
 # Amongst The Stars
 ### Author: Christopher Huber
 ##### Copyright Christopher Huber under the MIT License
+##### Live Website: https://chuber42.github.io/Amongst-The-Stars/
 
 ### Intro
 Hello! Welcome to "Amongst The Stars": A first-person, VR-compatible space simulator.  
@@ -21,7 +22,38 @@ enormous challenge, and one I look forward to resolving in clever, subtle, insig
 
 Please see below for the proposal submitted for this project.
 
-### Proposal
+### Controls
+
+Arrow keys: Up moves forward, Down moves back, left and right strafe.  
+Click and drag the left mouse button to change your facing direction.  
+Spacebar moves "up".  
+Please note that because this is 3D, it is possible to be "above" and "below" the solar plane if you so choose.  
+Click on a spatial body to indicate your interest in it/open a contextual menu for it (under construction).  
+
+### Known Bugs  
+
+1. The GH-Pages version of this app does not render the placeholder sky (star) map background, so space appears to be empty except for our sun.  
+2. Clicking an object to "expand" it causes it to be displaced on the Y axis without any cooresponding change in its coordinates, for reasons unclear and under investigation.  
+
+### For developers, Potential Employers, and other Code-investigators:  
+### Please note! This project is still very much in its early stages, and its infrastructure is not representative of good coding practices: Many global properties (props) are passed by prop drilling and can/will be refactored to implement either redux or state hooks. 
+
+### Future Plans
+
+Please note that these are in no-particular-order in terms of implementation intent.
+
+1. More stars than just our sun should be rendered - all background stars should/will be based on astronomical survey data (GAIA database).  
+2. Graphics should be attached to planets to indicate their orbits (orbit lines).  
+3. Kepler's equations will be applied to planet data to place planets at their spatially-correct coordinates in space relative to each other and the galatic core of the Milky Way.  
+4. API data from NASA/JPL will be used to add "interesting solar objects" as a contextually-available rendering option.  
+5. Star and Planet data will be stored in a database such as Firestore, as hard-coded data will be too volumous to be a good idea.  
+6. Similarly, nested data structures need expanding: Planets need moons or other sattelites, Saturn requires rings, and so forth.  
+7. A HUD that moves with the player (possibly invisibly when no objects are "expanded"), to display contextual information on: such as stats or links to external resources (wikipedia page, etc).  
+8. Once interstellar stars are rendered, the ability to customize player velocity in order to move to them will need to be added.  
+9. Smooth out movement controls.
+10. And many more, as I identify their necessity.    
+
+### Original Proposal
 
 Name of Student: Christopher Huber
 
@@ -52,3 +84,9 @@ What additional tools, frameworks, libraries, APIs, or other resources will thes
     Nasa API calls
     Possibly Databases - undecided on best method for storing large volumes of Star data.
     ThreeJS (under-the-hood stuff React uses to make extra features work).
+
+### Credits
+
+My thanks go out to many online tutorials (links pending) for helping me build and reverse-engineer the syntax and subtleties of React360.  
+The keyboard controls are copied and adapted from Martin Pham (https://gitlab.com/martinpham/react-360-keyboard-camera-controller).  
+the planetary assets are courtesy of planetpixelemporion.com.  

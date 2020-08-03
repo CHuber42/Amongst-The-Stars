@@ -12,13 +12,12 @@ import {
   DirectionalLight,
   SpotLight,
   controls,
-  Surface,
   NativeModules
 } from 'react-360';
-import SolarSystem from './components/SolarSystem';
-import ContextRing from './components/ContextRing';
-import { SurfaceShape } from 'react-360-web/js/Compositor/Surface';
+import {Surface} from 'react-360-web'
+
 import Star from "./components/Star";
+import CurrentPost from "./components/CurrentPost";
 
 const LocationModule = NativeModules.LocationModule;
 
@@ -61,7 +60,9 @@ export default class capstone extends React.Component {
     });
 
     this.lastUpdate = Date.now();
-    this.rotate = this.rotate.bind(this);   
+    this.rotate = this.rotate.bind(this); 
+    this.someSurface = new Surface(1200, 200, Surface.SurfaceShape.Flat);
+    this.someSurface._mesh.position.set([0, 1.3, -3]); 
   }
   
   componentDidMount() {
